@@ -1,7 +1,7 @@
 {
   "name": "@haydenbleasel/use-theme",
   "version": "1.0.2",
-  "description": "A tiny, zero-dependency hook for handling themes with system preference detection.",
+  "description": "A tiny, zero-dependency, SSR-friendly hook for handling themes with system preference detection.",
   "files": [
     "dist"
   ],
