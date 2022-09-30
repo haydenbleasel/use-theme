@@ -21,7 +21,7 @@ const App = () => {
       <h1>Current theme: {theme}</h1>
       <button onClick={() => setTheme('light')}>Light</button>
       <button onClick={() => setTheme('dark')}>Dark</button>
-      <button onClick={() => setTheme(undefined)}>System Default</button>
+      <button onClick={() => setTheme(null)}>System Default</button>
     </div>
   );
 };
