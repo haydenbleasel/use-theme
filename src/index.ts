@@ -4,9 +4,16 @@ export type Theme = 'light' | 'dark' | null;
 type ThemeHandler = (newTheme: Theme) => void;
 
 const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
-  const theme = localStorage.getItem('theme') as Theme;
+  const theme: Theme =
+    typeof window === 'undefined'
+      ? null
+      : (localStorage.getItem('theme') as Theme);
 
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     if (
       theme === 'dark' ||
       (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -17,10 +24,17 @@ const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
     }
   }, [theme]);
 
-  const handleSetTheme = (newTheme: Theme) =>
-    newTheme
-      ? localStorage.setItem('theme', newTheme)
-      : localStorage.removeItem('theme');
+  const handleSetTheme = (newTheme: Theme) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    if (newTheme) {
+      localStorage.setItem('theme', newTheme);
+    } else {
+      localStorage.removeItem('theme');
+    }
+  };
 
   return [theme, handleSetTheme];
 };
