@@ -1,6 +1,6 @@
 # useTheme
 
-`useTheme` is a tiny, zero-dependency, SSR-friendly hook for handling themes with system preference detection. It is designed to work with Tailwind's `darkMode: 'class'` setting by adding a `dark` or `light` class to the `html` element when the user's system preference is set. It also persists to `localStorage` so that the user's preference is remembered.
+`useTheme` is a tiny, SSR-friendly hook for handling themes with system preference detection. It is designed to work with Tailwind's `darkMode: 'class'` setting by adding a `dark` or `light` class to the `html` element when the user's system preference is set. It also persists to `localStorage` so that the user's preference is remembered.
 
 ## Installation
 
@@ -11,7 +11,7 @@ yarn add @haydenbleasel/use-theme
 ## Usage
 
 ```jsx
-import { useTheme } from '@haydenbleasel/use-theme';
+import useTheme from '@haydenbleasel/use-theme';
 
 const App = () => {
   const [theme, setTheme] = useTheme();

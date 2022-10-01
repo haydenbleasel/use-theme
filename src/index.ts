@@ -1,13 +1,17 @@
 import { useEffect } from 'react';
+import { useLocalStorageValue } from '@react-hookz/web';
 
 export type Theme = 'light' | 'dark' | null;
 type ThemeHandler = (newTheme: Theme) => void;
 
 const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
-  const theme: Theme =
-    typeof window === 'undefined'
-      ? null
-      : (localStorage.getItem('theme') as Theme);
+  const [theme, setTheme, removeTheme] = useLocalStorageValue<Theme>(
+    'theme',
+    undefined,
+    {
+      initializeWithStorageValue: false,
+    }
+  );
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -30,9 +34,9 @@ const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
     }
 
     if (newTheme) {
-      localStorage.setItem('theme', newTheme);
+      setTheme(newTheme);
     } else {
-      localStorage.removeItem('theme');
+      removeTheme();
     }
   };
 
