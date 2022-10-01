@@ -1,3 +1,15 @@
+# v1.0.5 (Sat Oct 01 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Disable all Tailwind transitions during class change ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v1.0.4 (Sat Oct 01 2022)
 
 #### ⚠️ Pushed to `main`
