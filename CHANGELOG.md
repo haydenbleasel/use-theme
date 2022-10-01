@@ -1,3 +1,15 @@
+# v1.0.4 (Sat Oct 01 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Misc fixes, use react-hookz/web ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v1.0.3 (Fri Sep 30 2022)
 
 #### ⚠️ Pushed to `main`
