@@ -5,13 +5,10 @@ export type Theme = 'light' | 'dark' | null;
 type ThemeHandler = (newTheme: Theme) => void;
 
 const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
-  const [theme, setTheme, removeTheme] = useLocalStorageValue<Theme>(
-    'theme',
-    undefined,
-    {
-      initializeWithStorageValue: false,
-    }
-  );
+  const { value, set, remove } = useLocalStorageValue<Theme>('theme', {
+    defaultValue: null,
+    initializeWithValue: false,
+  });
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -19,8 +16,8 @@ const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
     }
 
     if (
-      theme === 'dark' ||
-      (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      value === 'dark' ||
+      (!value && window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
       document.documentElement.classList.add('dark');
     } else {
@@ -31,7 +28,7 @@ const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
     window.setTimeout(() => {
       document.documentElement.classList.remove('[&_*]:!transition-none');
     }, 0);
-  }, [theme]);
+  }, [value]);
 
   const handleSetTheme = (newTheme: Theme) => {
     if (typeof window === 'undefined') {
@@ -39,13 +36,13 @@ const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
     }
 
     if (newTheme) {
-      setTheme(newTheme);
+      set(newTheme);
     } else {
-      removeTheme();
+      remove();
     }
   };
 
-  return [theme, handleSetTheme];
+  return [value ?? null, handleSetTheme];
 };
 
 export default useTheme;
