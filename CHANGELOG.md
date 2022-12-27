@@ -1,3 +1,15 @@
+# v1.0.8 (Tue Dec 27 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Temporarily disable transitions on theme change ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v1.0.7 (Fri Nov 11 2022)
 
 #### ⚠️ Pushed to `main`
