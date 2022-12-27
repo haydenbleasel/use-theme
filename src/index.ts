@@ -15,6 +15,11 @@ const useTheme = (): [theme: Theme, setTheme: ThemeHandler] => {
       return;
     }
 
+    document.documentElement.classList.add('[&_*]:!transition-none');
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('[&_*]:!transition-none');
+    }, 0);
+
     if (
       value === 'dark' ||
       (!value && window.matchMedia('(prefers-color-scheme: dark)').matches)
